@@ -1,0 +1,106 @@
+<%- include('./header.ejs') %>
+
+  <div class="container mb-5" style="margin-top: 150px; box-shadow: 0px 10px 10px 10px rgba(1, 11, 60, 0.1);
+-moz-box-shadow: 0px 10px 10px 10px rgba(1, 11, 60, 0.1);">
+    <div class="row">
+      <div class="col-md-4" style="margin-top: 180px;">
+        <div class="profile-img-container">
+          <img src="<%= i %>" alt="Profile Picture" class="profile-img">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <h1 class="text-primary mt-5" style="margin-bottom: 30px;">Profile Dashboard</h1>
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Name:</strong>
+            <%= n %>
+          </li>
+          <li class="list-group-item"><strong>Email:</strong>
+            <%= e %>
+          </li>
+          <li class="list-group-item"><strong>Phone:</strong> (+91) <%= p %>
+          </li>
+          <li class="list-group-item"><strong>Course:</strong> MCA</li>
+          <li class="list-group-item"><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        </ul>
+        <button type="button" class="btn btn-primary mt-5 mb-3" data-bs-toggle="modal"
+          data-bs-target="#profileUpdateModal">
+          Update Profile
+        </button>
+        <button type="submit" class="btn btn-primary mt-5 mb-3" data-bs-toggle="modal"
+          data-bs-target="#passwordChangeModal">
+          Change Password
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Password change modal -->
+  <div class="modal fade" id="passwordChangeModal" tabindex="-1" aria-labelledby="passwordChangeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="passwordChangeModalLabel">Change Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/change_password" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="">Old Password</label>
+              <input type="password" class="form-control" name="old_password" required>
+            </div>
+            <div class="form-group">
+              <label for="">New Password</label>
+              <input type="password" class="form-control" name="new_password" required>
+            </div>
+            <div class="form-group">
+              <label for="">Confirm Password</label>
+              <input type="password" class="form-control" name="cpassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Change Password</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button trigger modal -->
+
+
+  <!-- Profile update modal -->
+  <div class="modal fade" id="profileUpdateModal" tabindex="-1" aria-labelledby="profileUpdateModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="profileUpdateModalLabel">Update Profile</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/profile_update" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name" value="<%= n %>" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" name="email" value="<%= e %>" required>
+            </div>
+            <div class="form-group">
+              <label for="image">Image</label>
+              <input type="file" class="form-control-file" id="image" name="image">
+              <img src="<%= i %>"  class="rounded-circle" alt="" width="50">
+              <small class="form-text text-muted">Upload a new profile picture, or leave blank to keep the current
+                one.</small>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Update Profile</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <%- include('./footer.ejs') %>

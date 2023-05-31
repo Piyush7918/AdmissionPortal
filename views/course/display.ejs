@@ -1,0 +1,67 @@
+<%- include('../header.ejs')%>
+    <br><br><br><br>
+
+    <div class="container mt-5">
+        <div class="table-responsive">
+            <% if(message.length> 0){ %>
+                <div class="alert alert-success">
+                    <%= message %>
+                </div>
+                <% } %>
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Mobile Number</th>
+                                <th>Course</th>
+                                <th>status</th>
+                                <th>comment</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% i=1 %>
+                            <% d.forEach((item)=>{ %>
+                                <tr>
+                                    <td>
+                                        <%= i++ %>
+                                    </td>
+                                    <td>
+                                        <%= item.name %>
+                                    </td>
+                                    <td>
+                                        <%= item.email %>
+                                    </td>
+                                    <td>
+                                        <%= item. mobile_number %>
+                                    </td>
+                                      <td>
+                                        <%= item.course %>
+                                      </td>  
+                                      <td>
+                                        <%= item. status %>
+                                      </td>    
+                                       <td>
+                                        <%= item.comment %>
+                                        </td>
+                                        <td>
+                                        <a href="/course_view/<%= item._id %>" class="btn btn-info">View</a>
+                                        <a href="/course_edit/<%= item._id %>" class="btn btn-primary">Edit</a>
+                                       
+                                       </td>
+                                </tr>
+
+                                <% }) %>
+
+
+                        </tbody>
+                    </table>
+        </div>
+    </div>
+
+
+    <br><br><br><br><br><br>
+
+    <%- include('../footer.ejs')%>

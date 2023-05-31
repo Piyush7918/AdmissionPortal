@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <!--bootstrap css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!--my css-->
+    <link rel="stylesheet" href="css/admission.css">
+    <link rel="icon" href="https://logodix.com/logo/1713924.png">
+</head>
+
+<body>
+    <section style="background-color: #e69b36;">
+        <div class="container"><br><br>
+            <div class="row ns d-flex justify-content-center align-items-center h-100">
+                
+                <div class="col col-xl-10">
+                    <div class="card" style="border-radius: 1rem;">
+                        <div class="row g-0"><br>
+                            <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                <img src="/image/r.jpg" alt="login" class="img-fluid" style="border-radius: 1rem 0 0 1rem;">
+                            </div>
+                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 text-black">
+                                    <div class="d-flex align-items-center pb-1">
+                                        <img src="https://www.veeacademy.org/img/logo.jpg" class="register_logo" width="120px" height="120px" alt="....">
+                                    </div>
+                                    <h4 class="text-center log_hed mb-3 pb-3" style="color: #e69b36;">Login</h4>
+                                    <% if(message.length > 0){  %>
+                                        <div class="alert alert-success">
+                                            <%= message %>
+                                        </div>
+                                <%    }  %>
+                                <% if(error.length > 0){  %>
+                                    <div class="alert alert-danger">
+                                        <%= error %>
+                                    </div>
+                            <%    }  %>
+                                    <form class="pt-4" method="post" action="/veryfy_login" enctype="multipart/form-data">
+                                        <div class="form-group mb-4">
+                                            <input style="color: #e69b36;" type="text" name="email" class="form-control form-control-lg" placeholder="email" required>
+                                        </div>
+                                        <div class="form-group mb-4">
+                                            <input style="color: #e69b36;" type="password" name="password" class="form-control form-control-lg" placeholder="password" required>
+                                        </div>
+                                        <div class="form-group text-center">
+                                            <button type="submit" class="btn btn-lg btn-block form-control" style="background: #e69b36; color:#ffff;">Log In</button>
+                                            <br>
+                                            <div class="mt-4">
+                                                <span class=" mb-5 pb-lg-2">DON`T HAVE AN ACCOUNT?</span>
+                                                <a href="/registerassion" style="color: #e69b36;">REGISTER NOW</a>
+                                                <br>
+                                                <a href="" style="color: #e69b36;" class="pt-3">FORGOT PASSWORD</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--row end-->
+        </div><!--container end-->
+        <br><br>
+
+    </section>
+
+</body>
+
+</html>

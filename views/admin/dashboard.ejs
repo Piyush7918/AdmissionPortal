@@ -1,0 +1,79 @@
+<%- include('../header.ejs') %>
+
+
+    <div class="content" style="margin-top: 80px;">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div>
+                                <strong class="card-title">Student Enroll list</strong>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export"
+                                class="table table-striped table-bordered text-center">
+                                <thead class="bg-success">
+                                    <tr>
+                                        <th>id</th>
+                                        <th>name</th>
+                                        <th>email</th>
+                                       
+                                        <th>Status</th>
+                                        <th>Comment</th>
+                                        <th></th>
+                                        <th>action</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <% i=1 %>
+                                        <% d.forEach((item)=>{ %>
+                                            <tr>
+                                                <td>
+                                                    <%= i++ %>
+                                                </td>
+                                                <td>
+                                                    <%= item.name %>
+                                                </td>
+                                                <td>
+                                                    <%= item.email %>
+                                                </td>
+                                               
+                                                <td>
+                                                    <%= item.status %>
+                                                </td>
+                                                <td>
+                                                    <form action="/update_approve/<%= item._id %>" method="post">
+                                                        <textarea name="comment"></textarea>
+                                                        <input type="hidden" name="email" value="<%= item.email %>">
+                                                        <input type="hidden" name="course" value="<%= item.course %>">
+                                                        <input type="hidden" name="name" value="<%= item.name %>">
+                                                </td>
+                                                <td>
+                                                    <button type="submit" name="status" value="Approved" class="btn btn-info">Approved</button>
+                                                    <button type="submit" name="status" value="Rejected" class="btn btn-danger">Rejected</button>
+                                                </form>
+
+                                                </td>
+                                                <td>
+                                                    <a href="/course_view/<%= item._id %>" class="btn btn-info">View</a>
+                                                    <a href="/course_delete/<%= item._id %>"
+                                                        class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- .animated -->
+
+
+    </div><!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <%- include('../footer.ejs') %>
